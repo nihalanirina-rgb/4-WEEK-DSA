@@ -1,0 +1,20 @@
+class Solution {
+public:
+    void para(int open,int close,vector<string>&ans,int n,string s){
+        if(open==n&&close==n){
+            ans.push_back(s);
+            return;
+        }
+        if(open<n){
+            para(open+1,close,ans,n,s+'(');
+        }if(close<open){
+            para(open,close+1,ans,n,s+')');
+        }
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string>ans;
+        para(0,0,ans,n,"");
+        return ans;
+    
+    }
+};
